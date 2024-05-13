@@ -1,31 +1,45 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../services/authService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule,
-    FormsModule, NgbModule],
+    FormsModule, NgbModule, HttpClientModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private modalService: NgbModal) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', Validators.required, Validators.min(4), Validators.max(12)],
+      password: ['', Validators.required, , Validators.min(8), Validators.max(20)]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
-      // You can add your login logic here, such as calling an authentication service
-      console.log('Form submitted:', this.loginForm.value);
+      const { username, password } = this.loginForm.value;
+      this.authService.login(username, password).subscribe(
+        () => {
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          console.error('Login error:', error);
+        }
+      );
     }
   }
 }
