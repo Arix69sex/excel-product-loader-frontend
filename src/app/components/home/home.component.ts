@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/authService';
 import { ProductService } from '../../services/productService';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-home',
   standalone: true,
   imports: [ReactiveFormsModule,
-    FormsModule, HttpClientModule, CommonModule ],
+    FormsModule, HttpClientModule, CommonModule, RouterModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

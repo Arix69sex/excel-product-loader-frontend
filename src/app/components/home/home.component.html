@@ -1,6 +1,7 @@
-<div class="container mx-auto mt-8">
-  <h1 class="text-2xl font-bold mb-4">Products</h1>
-  <table class="min-w-full">
+<div class="bg-slate-50 container max-w-full">
+  
+  <h1 class="text-4xl font-bold mb-4 text-center pt-10">Products</h1>
+  <table class="w-10/12 mx-auto">
       <thead>
           <tr>
               <th class="px-4 py-2">Handle</th>
@@ -12,6 +13,7 @@
               <th class="px-4 py-2">Price</th>
               <th class="px-4 py-2">Compare Price</th>
               <th class="px-4 py-2">Barcode</th>
+              <th class="px-4 py-2">Actions</th>
           </tr>
       </thead>
       <tbody>
@@ -28,10 +30,10 @@
               <td class="border px-4 py-2">
                   <div class="flex">
                       <div class="mr-2">
-                          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                          <button [routerLink]="['/edit-product', product.id]" class="bg-violet-600 hover:bg-violet-900 text-white py-2 px-4 rounded">Edit</button>
                       </div>
                       <div>
-                          <button (click)="deleteProduct(product.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                          <button (click)="deleteProduct(product.id)" class="bg-violet-200 hover:bg-violet-300 hover:text-white text-black py-2 px-4 rounded">Delete</button>
                       </div>
                   </div>
               </td>
