@@ -12,7 +12,8 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.get<any>(`${this.apiUrl}`, { headers }).pipe(
         map((response) => {
             return response;
@@ -25,7 +26,8 @@ export class ProductService {
   }
 
   getProductById(productId: string): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.get<any>(`${this.apiUrl}/${productId}`, { headers }).pipe(
         map((response) => {
             return response;
@@ -38,7 +40,8 @@ export class ProductService {
   }
 
   createProduct(data: Object): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.post<any>(`${this.apiUrl}`, data, { headers }).pipe(
         map((response) => {
             return response;
@@ -51,7 +54,8 @@ export class ProductService {
   }
 
   updateProduct(productId: string, data: Object): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.patch<any>(`${this.apiUrl}/${productId}`, data, { headers }).pipe(
         map((response) => {
             return response;
@@ -64,7 +68,8 @@ export class ProductService {
   }
 
   deleteProduct(productId: string): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.delete<any>(`${this.apiUrl}/${productId}`, { headers }).pipe(
         map((response) => {
             return response;

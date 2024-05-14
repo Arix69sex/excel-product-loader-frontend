@@ -23,7 +23,7 @@ export class AuthService {
           }),
         catchError(error => {
         console.error(error)
-        throw 'Error in signup API call';
+        throw 'Error in login API call';
       })
     );
   }
