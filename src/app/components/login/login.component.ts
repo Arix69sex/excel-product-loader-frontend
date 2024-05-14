@@ -1,15 +1,16 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '../../services/authService';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/authService';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule,
-    FormsModule, NgbModule, HttpClientModule ],
+    FormsModule, NgbModule, HttpClientModule, CommonModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -18,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required, Validators.min(4), Validators.max(12)],
-      password: ['', Validators.required, , Validators.min(8), Validators.max(20)]
+      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
     });
   }
 

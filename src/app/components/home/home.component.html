@@ -1,1 +1,33 @@
-<p>home works!</p>
+<!-- home.component.html -->
+<div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-bold mb-4">Products</h1>
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Handle</th>
+          <th class="px-4 py-2">Title</th>
+          <th class="px-4 py-2">Description</th>
+          <th class="px-4 py-2">SKU</th>
+          <th class="px-4 py-2">Grams</th>
+          <th class="px-4 py-2">Stock</th>
+          <th class="px-4 py-2">Price</th>
+          <th class="px-4 py-2">Compare Price</th>
+          <th class="px-4 py-2">Barcode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td class="border px-4 py-2">{{ product.handle }}</td>
+          <td class="border px-4 py-2">{{ product.title }}</td>
+          <td class="border px-4 py-2">{{ product.description }}</td>
+          <td class="border px-4 py-2">{{ product.sku }}</td>
+          <td class="border px-4 py-2">{{ product.grams }}</td>
+          <td class="border px-4 py-2">{{ product.stock }}</td>
+          <td class="border px-4 py-2">{{ product.price }}</td>
+          <td class="border px-4 py-2">{{ product.comparePrice }}</td>
+          <td class="border px-4 py-2">{{ product.barcode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
