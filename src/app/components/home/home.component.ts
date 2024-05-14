@@ -31,4 +31,15 @@ export class HomeComponent implements OnInit {
       this.products = response["products"];
     });
   }
+
+  deleteProduct(productId: string): void {
+    this.productService.deleteProduct(productId).subscribe(response => {
+      console.log("response", response)
+      const productToDelete = response.body
+      const index = this.products.findIndex(product => product.id === productToDelete.id);
+      if (index !== -1) {
+        this.products.splice(index, 1);
+      }
+    });
+  }
 }

@@ -68,7 +68,7 @@ export class ProductService {
   }
 
   deleteProduct(productId: string): Observable<any> {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
     return this.http.delete<any>(`${this.apiUrl}/${productId}`, { headers }).pipe(
         map((response) => {
