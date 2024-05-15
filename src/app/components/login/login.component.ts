@@ -12,10 +12,11 @@ import { CommonModule } from '@angular/common';
   imports: [ReactiveFormsModule,
     FormsModule, NgbModule, HttpClientModule, CommonModule ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  showToast: boolean = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -41,6 +42,9 @@ export class LoginComponent implements OnInit {
           console.error('Login error:', error);
         }
       );
+    } else {
+
+      
     }
   }
 }

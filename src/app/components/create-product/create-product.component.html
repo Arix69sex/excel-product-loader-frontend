@@ -7,38 +7,65 @@
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Handle</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="handle">
+        <div *ngIf="createProductForm.get('handle')?.invalid && createProductForm.get('handle')?.touched" class="text-red-500 text-sm mt-1">
+          Handle is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Title</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="title">
+        <div *ngIf="createProductForm.get('title')?.invalid && createProductForm.get('title')?.touched" class="text-red-500 text-sm mt-1">
+          Title is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Description</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="description">
+        <div *ngIf="createProductForm.get('description')?.invalid && createProductForm.get('description')?.touched" class="text-red-500 text-sm mt-1">
+          Description is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">SKU</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="sku">
+        <div *ngIf="createProductForm.get('sku')?.invalid && createProductForm.get('sku')?.touched" class="text-red-500 text-sm mt-1">
+          SKU is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Grams</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="grams">
+        <div *ngIf="createProductForm.get('grams')?.invalid && createProductForm.get('grams')?.touched" class="text-red-500 text-sm mt-1">
+          Grams are required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Stock</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="stock">
+        <div *ngIf="createProductForm.get('stock')?.invalid && createProductForm.get('stock')?.touched" class="text-red-500 text-sm mt-1">
+          Stock is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Price</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="price">
+        <div *ngIf="createProductForm.get('price')?.invalid && createProductForm.get('price')?.touched" class="text-red-500 text-sm mt-1">
+          Price is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Compare Price</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="comparePrice">
+        <div *ngIf="createProductForm.get('comparePrice')?.invalid && createProductForm.get('comparePrice')?.touched" class="text-red-500 text-sm mt-1">
+          Compare Price is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Barcode</label>
         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="barcode">
+        <div *ngIf="createProductForm.get('barcode')?.invalid && createProductForm.get('barcode')?.touched" class="text-red-500 text-sm mt-1">
+          Barcode is required
+        </div>
       </div>
       <div class="flex justify-center py-4">
         <button type="submit" class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>

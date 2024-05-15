@@ -16,17 +16,6 @@ import { AuthService } from '../../services/authService';
 })
 export class EditProductComponent implements OnInit{
   productId: string = ""
-  product: any = {
-    "handle": "",
-    "title": "",
-    "barcode": "",
-    "price": "",
-    "comparePrice": "",
-    "grams": "",
-    "sku": "",
-    "stock": "",
-    "description": ""
-  };
 
   editProductForm: FormGroup;
 
@@ -35,7 +24,15 @@ export class EditProductComponent implements OnInit{
       this.router.navigate(['/login']);
     }
     this.editProductForm = this.fb.group({
-
+      handle: ["", [Validators.required]],
+      title: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      sku: [0, [Validators.required,]],
+      grams: [0, [Validators.required,]],
+      stock: [0, [Validators.required, ]],
+      price: [0, [Validators.required, ]],
+      comparePrice: [0, [Validators.required ]],
+      barcode: [0, [Validators.required, ]]
     });
    }
 
@@ -44,17 +41,18 @@ export class EditProductComponent implements OnInit{
     this.productService.getProductById(this.productId);
 
     this.productService.getProductById(this.productId).subscribe(response => {
-      this.product = response["product"];
+      response["product"];
+      console.log("response", response["product"])
       this.editProductForm = this.fb.group({
-        handle: [this.product.handle, [Validators.required]],
-        title: [this.product.title, [Validators.required]],
-        description: [this.product.description, [Validators.required]],
-        sku: [this.product.sku, [Validators.required,]],
-        grams: [this.product.grams, [Validators.required,]],
-        stock: [this.product.stock, [Validators.required, ]],
-        price: [this.product.price, [Validators.required, ]],
-        comparePrice: [this.product.comparePrice, [Validators.required, ]],
-        barcode: [this.product.barcode, [Validators.required, ]]
+        handle: [response["product"].handle, [Validators.required]],
+        title: [response["product"].title, [Validators.required]],
+        description: [response["product"].description, [Validators.required]],
+        sku: [response["product"].sku, [Validators.required,]],
+        grams: [response["product"].grams, [Validators.required,]],
+        stock: [response["product"].stock, [Validators.required, ]],
+        price: [response["product"].price, [Validators.required, ]],
+        comparePrice: [response["product"].comparePrice, [Validators.required ]],
+        barcode: [response["product"].barcode, [Validators.required, ]]
       });
     })
 
@@ -62,8 +60,8 @@ export class EditProductComponent implements OnInit{
 
   onSubmit(): void {
     if (this.editProductForm.valid) {
-      this.productService.updateProduct(this.productId, this.product).subscribe(response => {
-        this.product = response["product"];
+      const productData = this.editProductForm.value;
+      this.productService.updateProduct(this.productId, productData).subscribe(() => {
         this.router.navigate(['/home']);
       });
     } else {

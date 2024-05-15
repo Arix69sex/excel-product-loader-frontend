@@ -2,74 +2,74 @@
   <div class="container mx-auto">
     <h1 class="text-6xl pt-20 text-center">Edit Product</h1>
   </div>
-  <div class="flex flex-col items-center justify-center max-h-screen mt-16">
-    <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()"
-      class="max-w-lg w-full sm:w-2/3 md:w-1/2 lg:w-2/3 xl:w-1/2 bg-violet-50 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+  <div class="flex flex-col items-center justify-center mt-16">
+    <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()" class="max-w-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-violet-50 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Handle</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text" [placeholder]="product.handle" [(ngModel)]="product.handle" [ngModelOptions]="{standalone: true}">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="handle">
+        <div *ngIf="editProductForm.get('handle')?.invalid && editProductForm.get('handle')?.touched" class="text-red-500 text-sm mt-1">
+          Handle is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Title</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.title" [(ngModel)]="product.title" [ngModelOptions]="{standalone: true}">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="title">
+        <div *ngIf="editProductForm.get('title')?.invalid && editProductForm.get('title')?.touched" class="text-red-500 text-sm mt-1">
+          Title is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Description</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.description" [(ngModel)]="product.description"
-          [ngModelOptions]="{standalone: true}">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" formControlName="description">
+        <div *ngIf="editProductForm.get('description')?.invalid && editProductForm.get('description')?.touched" class="text-red-500 text-sm mt-1">
+          Description is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">SKU</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.sku" [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}"
-          type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="sku">
+        <div *ngIf="editProductForm.get('sku')?.invalid && editProductForm.get('sku')?.touched" class="text-red-500 text-sm mt-1">
+          SKU is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Grams</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.grams" [(ngModel)]="product.grams" [ngModelOptions]="{standalone: true}"
-          type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="grams">
+        <div *ngIf="editProductForm.get('grams')?.invalid && editProductForm.get('grams')?.touched" class="text-red-500 text-sm mt-1">
+          Grams are required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Stock</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.stock" [(ngModel)]="product.stock" [ngModelOptions]="{standalone: true}"
-          type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="stock">
+        <div *ngIf="editProductForm.get('stock')?.invalid && editProductForm.get('stock')?.touched" class="text-red-500 text-sm mt-1">
+          Stock is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Price</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.price" [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}"
-          type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="price">
+        <div *ngIf="editProductForm.get('price')?.invalid && editProductForm.get('price')?.touched" class="text-red-500 text-sm mt-1">
+          Price is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Compare Price</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.comparePrice" [(ngModel)]="product.comparePrice"
-          [ngModelOptions]="{standalone: true}" type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="comparePrice">
+        <div *ngIf="editProductForm.get('comparePrice')?.invalid && editProductForm.get('comparePrice')?.touched" class="text-red-500 text-sm mt-1">
+          Compare Price is required
+        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Barcode</label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.barcode" [(ngModel)]="product.barcode" [ngModelOptions]="{standalone: true}"
-          type="number">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" formControlName="barcode">
+        <div *ngIf="editProductForm.get('barcode')?.invalid && editProductForm.get('barcode')?.touched" class="text-red-500 text-sm mt-1">
+          Barcode is required
+        </div>
       </div>
       <div class="flex justify-center py-4">
-        <button type="submit"
-          class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>
+        <button type="submit" class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>
       </div>
     </form>
-  </div>
+  </div>  
 </div>
