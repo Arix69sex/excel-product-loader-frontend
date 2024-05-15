@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  routeToCreateProduct(): void {
+    this.router.navigate(['/create-product']);
+  }
+
   deleteProduct(productId: string): void {
     this.productService.deleteProduct(productId).subscribe(response => {
       console.log("response", response)

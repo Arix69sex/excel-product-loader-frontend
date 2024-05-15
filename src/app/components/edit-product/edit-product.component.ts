@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/productService';
+import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'app-edit-product',
@@ -22,13 +23,17 @@ export class EditProductComponent implements OnInit{
     "price": "",
     "comparePrice": "",
     "grams": "",
+    "sku": "",
     "stock": "",
     "description": ""
   };
 
   editProductForm: FormGroup;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) {
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+    }
     this.editProductForm = this.fb.group({
 
     });

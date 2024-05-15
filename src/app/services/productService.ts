@@ -42,6 +42,7 @@ export class ProductService {
   createProduct(data: Object): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
+    console.log("data to send", data)
     return this.http.post<any>(`${this.apiUrl}`, data, { headers }).pipe(
         map((response) => {
             return response;

@@ -24,10 +24,8 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
-    // Check if the user is logged in based on localStorage JWT
     const token = localStorage.getItem('token');
-    console.log("is logged in", !!token)
-    return !!token; // Returns true if jwt exists, false otherwise
+    return !!token;
   }
 
   getUsernameFromJWT(): string {

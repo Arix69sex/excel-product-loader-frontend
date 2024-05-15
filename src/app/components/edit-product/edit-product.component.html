@@ -9,9 +9,6 @@
         <input
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text" [placeholder]="product.handle" [(ngModel)]="product.handle" [ngModelOptions]="{standalone: true}" type="text">
-        <div *ngIf="editProductForm.get('handle')?.invalid" class="text-red-500 text-xs mt-1">
-         Handle is required.
-        </div>
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Title</label>

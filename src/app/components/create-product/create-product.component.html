@@ -1,0 +1,67 @@
+<div class="bg-slate-50 container max-w-full">
+    <div class="container mx-auto">
+      <h1 class="text-6xl pt-16 text-center">Create Product</h1>
+    </div>
+    <div class="flex flex-col items-center justify-center max-h-screen mt-16">
+      <form [formGroup]="createProductForm" (ngSubmit)="onSubmit()" class="max-w-lg w-2/3 bg-violet-50 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Handle</label>
+          <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text" formControlName="handle" type="text">
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Title</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3"  formControlName="title" type="text"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Description</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="description" type="text"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">SKU</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="sku" type="number"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Grams</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="grams" type="number"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Stock</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="stock" type="number"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Price</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="price" type="number"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Compare Price</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="comparePrice" type="number"> 
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Barcode</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            rows="3" formControlName="barcode" type="number"> 
+        </div>
+        <div class="flex justify-center py-4">
+          <button type="submit" class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>
+        </div>
+      </form>
+    </div>  
+  </div>
+  
