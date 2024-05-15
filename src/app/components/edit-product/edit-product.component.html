@@ -1,67 +1,75 @@
 <div class="bg-slate-50 container max-w-full">
   <div class="container mx-auto">
-    <h1 class="text-6xl pt-16 text-center">Edit Product</h1>
+    <h1 class="text-6xl pt-20 text-center">Edit Product</h1>
   </div>
   <div class="flex flex-col items-center justify-center max-h-screen mt-16">
-    <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()" class="max-w-lg w-2/3 bg-violet-50 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+    <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()"
+      class="max-w-lg w-full sm:w-2/3 md:w-1/2 lg:w-2/3 xl:w-1/2 bg-violet-50 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Handle</label>
         <input
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text" [placeholder]="product.handle" [(ngModel)]="product.handle" [ngModelOptions]="{standalone: true}" type="text">
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="text" [placeholder]="product.handle" [(ngModel)]="product.handle" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Title</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.title" [(ngModel)]="product.title" [ngModelOptions]="{standalone: true}" type="text"> 
+          rows="3" [placeholder]="product.title" [(ngModel)]="product.title" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Description</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.description" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}" type="text"> 
+          rows="3" [placeholder]="product.description" [(ngModel)]="product.description"
+          [ngModelOptions]="{standalone: true}">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">SKU</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.sku" [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.sku" [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}"
+          type="number">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Grams</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.grams" [(ngModel)]="product.grams" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.grams" [(ngModel)]="product.grams" [ngModelOptions]="{standalone: true}"
+          type="number">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Stock</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.stock" [(ngModel)]="product.stock" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.stock" [(ngModel)]="product.stock" [ngModelOptions]="{standalone: true}"
+          type="number">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Price</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.price" [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.price" [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}"
+          type="number">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Compare Price</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.comparePrice" [(ngModel)]="product.comparePrice" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.comparePrice" [(ngModel)]="product.comparePrice"
+          [ngModelOptions]="{standalone: true}" type="number">
       </div>
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Barcode</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          rows="3" [placeholder]="product.barcode" [(ngModel)]="product.barcode" [ngModelOptions]="{standalone: true}" type="number"> 
+          rows="3" [placeholder]="product.barcode" [(ngModel)]="product.barcode" [ngModelOptions]="{standalone: true}"
+          type="number">
       </div>
       <div class="flex justify-center py-4">
-        <button type="submit" class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>
+        <button type="submit"
+          class="bg-violet-600 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded">Save</button>
       </div>
     </form>
   </div>
-
 </div>
